@@ -1,4 +1,15 @@
-# 1 基础语法
+#  1 基础语法
+
++ https://fishc.com.cn/forum-173-1.html
++ https://www.bilibili.com/video/BV1xs411Q799?p=3&spm_id_from=pageDriver&vd_source=fe12b7e37154d592ac06fb261323de5e
++ https://app.codingrooms.com/management/courses/6387/classes/8480/assignments
+
+## 1.0标识符
+
+- 第一个字符必须是字母表中字母或下划线 **_** 。
+- 标识符的其他的部分由字母、数字和下划线组成。
+- 标识符对大小写敏感。
+- 在 Python 3 中，可以用中文作为变量名，非 ASCII 标识符也是允许的了。
 
 ## 1.1 字面量
 
@@ -28,15 +39,33 @@ print(13.14)
 2. 如何使用注释
     1. 单行注释: # 使用＃号中间留一个空格 隔开
     2. 多行注释：三个```号包裹起来多行注释
+    3. 多行注释可以用多个 **#** 号，还有 **'''** 和 **"""**：
 
 ```py
-""" 我是一个多行注释
+""" 
+	我是一个多行注释
     我能做很多事情
     我喜欢一个人在深夜学coding
 """
 
 print(3.14159265)
 # 这是一个pi
+
+#!/usr/bin/python3
+ 
+# 第一个注释
+# 第二个注释
+ 
+'''
+第三注释
+第四注释
+'''
+ 
+"""
+第五注释
+第六注释
+"""
+print ("Hello, Python!")
 ```
 
 ---
@@ -256,6 +285,20 @@ xyz #abc：不合法，标识符中不允许出现“#”号。
 abc1：合法。
 1abc：不合法，标识符不允许数字开头。
 ```
+
+## python保留字
+
+保留字即关键字，我们不能把它们用作任何标识符名称。Python 的标准库提供了一个 keyword 模块，可以输出当前版本的所有关键字：
+
+
+
+```py
+>>> import keyword
+>>> keyword.kwlist
+['False', 'None', 'True', 'and', 'as', 'assert', 'break', '
+```
+
+
 
 ## 1.6.2总结
 
@@ -515,3 +558,128 @@ print(1 in y)
 # 输出: False
 print('a' in y)
 ```
+
+
+
+## 1.8 行与缩进
+
+python最具特色的就是使用缩进来表示代码块，不需要使用大括号 **{}** 。
+
+缩进的空格数是可变的，但是同一个代码块的语句必须包含相同的缩进空格数。实例如下：
+
+```py
+if True:
+    print ("True")
+else:
+    print ("False")
+```
+
+以下代码最后一行语句缩进数的空格数不一致，会导致运行错误：
+
+### 实例
+
+```py
+**if** True:
+  **print** ("Answer")
+  **print** ("True")
+**else**:
+  **print** ("Answer")
+ **print** ("False")   # 缩进不一致，会导致运行错误
+    
+    '''
+     File "test.py", line 6
+    print ("False")    # 缩进不一致，会导致运行错误
+                                      ^
+IndentationError: unindent does not match any outer indentation level
+    '''
+```
+
+以上程序由于缩进不一致，执行后会出现类似以下错误：
+
+#### Python Indentation
+
+Indentation refers to the spaces at the beginning of a code line.
+
+Where in other programming languages the indentation in code is for readability only, the indentation in Python is very important.
+
+Python uses indentation to indicate a block of code.
+
+## 多行语句
+
+Python 通常是一行写完一条语句，但如果语句很长，我们可以使用反斜杠 **\** 来实现多行语句，例如：
+
+```
+total = item_one + \
+        item_two + \
+        item_three
+```
+
+在 [], {}, 或 () 中的多行语句，不需要使用反斜杠 **\**，例如：
+
+```
+total = ['item_one', 'item_two', 'item_three',
+        'item_four', 'item_five']
+```
+
+
+
+## 2 课后题
+
+Python是脚本语言
+
+
+
+> 脚本语言(Scripting language)是电脑编程语言，因此也能让开发者藉以编写出让电脑听命行事的程序。以简单的方式快速完成某些复杂的事情通常是创造脚本语言的重要原则，基于这项原则，使得脚本语言通常比 C语言、C++语言 或 Java 之类的系统编程语言要简单容易。
+>
+> 也让脚本语言另有一些属于脚本语言的特性：
+>
+> - 语法和结构通常比较简单
+> - 学习和使用通常比较简单
+> - 通常以容易修改程序的“解释”作为运行方式，而不需要“编译”
+> - 程序的开发产能优于运行性能
+>
+> 一个脚本可以使得本来要用键盘进行的相互式操作自动化。一个Shell脚本主要由原本需要在命令行输入的命令组成，或在一个文本编辑器中，用户可以使用脚本来把一些常用的操作组合成一组串行。主要用来书写这种脚本的语言叫做脚本语言。很多脚本语言实际上已经超过简单的用户命令串行的指令，还可以编写更复杂的程序。
+
+
+**1. IDLE 是什么？**
+
+IDLE是一个Python Shell，shell的意思就是“外壳”，基本上来说，就是一个通过键入文本与程序交互的途径！像我们Windows那个cmd窗口，像Linux那个黑乎乎的命令窗口，他们都是shell，利用他们，我们就可以给操作系统下达命令。同样的，我们可以利用IDLE这个shell与Python进行互动。
+
+
+**2. print() 的作用是什么？**
+
+print() 会在输出窗口中显示一些文本（在这一讲中，输出窗口就是IDLE shell窗口）。
+
+
+**3. Python 中表示乘法的符号是什么？**
+
+Python中的乘号是*（星号）。
+
+
+**4. 为什么 >>>print('I love fishc.com ' \* 5) 可以正常执行，但 >>>print('I love fishc.com ' + 5) 却报错？**
+
+在 Python 中不能把两个完全不同的东西加在一起，比如说数字和文本，正是这个原因，>>>print('I love fishc.com ' + 5) 才会报错。
+
+**5. 如果我需要在一个字符串中嵌入一个双引号，正确的做法是？**
+
+你有两个选择：可以利用反斜杠（\）对双引号转义：\"，或者用单引号引起这个字符串。例如：' I l"o"ve fishc.com '。
+
+
+
+### pratice
+
+```py
+print(365 * 24 * 60 * 60)
+
+print('----- HAHAHAHAHAHA -----')
+temp = input("Lets guess a number ")
+guess = int(temp)
+if guess == 8:
+    print("wow you are genius")
+    print(" I will give you a price")
+else:
+    print("haha good try")
+    print("game is over")
+
+```
+
